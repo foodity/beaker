@@ -50,6 +50,8 @@ module Beaker
           Beaker::VagrantWorkstation
         when /^vagrant_parallels$/
           Beaker::VagrantParallels
+        when /^vagrant_ec2$/
+          Beaker::VagrantEc2
         when /^google$/
           Beaker::GoogleCompute
         when /^docker$/
