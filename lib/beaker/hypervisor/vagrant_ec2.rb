@@ -19,8 +19,6 @@ class Beaker::VagrantEc2 < Beaker::Vagrant
     provider_section << "      aws.security_groups = #{host['aws_security_groups']}\n" unless host['aws_security_groups'].nil?
     provider_section << "      override.ssh.username = \"ubuntu\"\n"
     provider_section << "      override.ssh.private_key_path = \"#{host['ssh_private_key_path']}\"\n" unless host['ssh_private_key_path'].nil?
-    provider_section << "      override.vm.network :private_network, type: :dhcp\n"
-
 
     provider_section << "    end\n"
 
