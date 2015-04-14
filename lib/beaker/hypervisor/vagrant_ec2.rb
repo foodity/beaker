@@ -15,7 +15,7 @@ class Beaker::VagrantEc2 < Beaker::Vagrant
     provider_section << "      aws.ami = \"#{host['aws_ami']}\"\n"
     provider_section << "      aws.region = \"#{host['aws_region'] ||= 'eu_west_1'}\"\n"
     provider_section << "      aws.subnet_id = \"#{host['aws_subnet_id']}\"\n"
-    provider_section << "      aws.tags = \"#{host['aws_tags'] ||= {'Name' => 'Temporary'}}\"\n"
+    provider_section << "      aws.tags = #{host['aws_tags'] ||= {'Name' => 'Temporary'}}\n"
 
     provider_section << "    end\n"
 
