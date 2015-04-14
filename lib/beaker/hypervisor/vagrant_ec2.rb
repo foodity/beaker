@@ -1,7 +1,7 @@
 require 'beaker/hypervisor/vagrant'
 
 class Beaker::VagrantEc2 < Beaker::Vagrant
-  def provision(provider = 'vagrantbox')
+  def provision(provider = 'aws')
     super
   end
 
