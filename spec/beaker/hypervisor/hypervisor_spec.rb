@@ -68,6 +68,13 @@ module Beaker
       expect( hypervisor.create( 'vagrant_virtualbox', [], make_opts() ) ).to be === vagrant
     end
 
+    it "creates a vagrant_aws hypervisor for vagrant aws hosts" do
+      vagrant = double( 'vagrant_ec2' )
+      allow( vagrant ).to receive( :provision ).and_return( true )
+      expect( VagrantEc2 ).to receive( :new ).once.and_return( vagrant )
+      expect( hypervisor.create( 'vagrant_ec2', [], make_opts() ) ).to be === vagrant
+    end
+
     context "#configure" do
       let( :options ) { make_opts.merge({ 'logger' => double().as_null_object }) }
       let( :hosts ) { make_hosts( { :platform => 'el-5' } ) }

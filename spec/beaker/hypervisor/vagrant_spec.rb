@@ -228,7 +228,7 @@ EOF
         expect( vagrant ).to receive( :vagrant_cmd ).with( "up" ).once
         @hosts.each do |host|
           host_prev_name = host['user']
-          expect( vagrant ).to receive( :set_ssh_config ).with( host, 'vagrant' ).once
+          expect( vagrant ).to receive( :set_ssh_config ).with( host, 'root' ).once
           expect( vagrant ).to receive( :copy_ssh_to_root ).with( host, options ).once
           expect( vagrant ).to receive( :set_ssh_config ).with( host, host_prev_name ).once
         end
