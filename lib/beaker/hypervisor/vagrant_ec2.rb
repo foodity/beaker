@@ -16,6 +16,9 @@ class Beaker::VagrantEc2 < Beaker::Vagrant
     provider_section << "      aws.region = \"#{host['aws_region'] ||= 'eu_west_1'}\"\n"
     provider_section << "      aws.subnet_id = \"#{host['aws_subnet_id']}\"\n"
     provider_section << "      aws.tags = #{host['aws_tags'] ||= {'Name' => 'Temporary'}}\n"
+    provider_section << "      aws.security_groups = #{host['aws_security_groups']}\n" unless host['aws_security_groups'].nil?
+    provider_section << "      override.ssh.username = \"ubuntu\""
+    provider_section << "      override.ssh.private_key_path = \"#{host['ssh_private_key_path']}\"" unless host['ssh_private_key_path'].nil?
 
     provider_section << "    end\n"
 
