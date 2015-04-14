@@ -134,7 +134,7 @@ module Beaker
       @hosts.each do |host|
         default_user = host['user']
 
-        set_ssh_config host, host['user']
+        set_ssh_config host, 'ubuntu'
 
         #copy vagrant's keys to roots home dir, to allow for login as root
         copy_ssh_to_root host, @options

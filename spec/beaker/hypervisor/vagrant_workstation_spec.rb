@@ -11,7 +11,7 @@ describe Beaker::VagrantWorkstation do
   it "uses the vmware_workstation provider for provisioning" do
     @hosts.each do |host|
       host_prev_name = host['user']
-      expect( vagrant ).to receive( :set_ssh_config ).with( host, 'root' ).once
+      expect( vagrant ).to receive( :set_ssh_config ).with( host, 'ubuntu' ).once
       expect( vagrant ).to receive( :copy_ssh_to_root ).with( host, options ).once
       expect( vagrant ).to receive( :set_ssh_config ).with( host, host_prev_name ).once
     end
